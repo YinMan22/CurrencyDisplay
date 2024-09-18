@@ -17,6 +17,13 @@ const gridData = [
     }
 ]
 
+const currencyLocales = {
+    AUD: 'en-AU',
+    MYR: 'ms-MY',
+    GBP: 'en-GB',
+    EUR: 'de-DE'
+}
+
 let sortOrder = { Currency: true, Amount: true };
 
 // Fetch table header
@@ -45,7 +52,7 @@ function getTD()
     gridData.forEach(d => {
         content += `<tr>
                 <td>${d.Currency}</td>
-                <td>${d.Amount.toFixed(2)}</td>
+                <td>${formatCurrency(d.Amount, d.Currency)}</td>
                 </tr>`
     })
 
@@ -82,4 +89,16 @@ function updateTHClass(thElement, column){
     else{
         thElement.classList.add('th-sort-desc');
     }
+}
+
+// Format Currency
+function formatCurrency(amount, currency)
+{
+    const locale = (currencyLocales[currency] || 'en-US');
+    return new Intl.NumberFormat(locale,{
+        style: 'decimal',
+        currency: currency,
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    }).format(amount);
 }
