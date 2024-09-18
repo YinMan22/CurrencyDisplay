@@ -71,6 +71,7 @@ function sortTableByColumn(column, thElement)
     getTD(); 
 }
 
+// Add class for icon display
 function updateTHClass(thElement, column){
     const allHeaders = document.querySelectorAll('th');
     allHeaders.forEach(th => th.classList.remove('th-sort-asc', 'th-sort-desc'));
