@@ -1,0 +1,38 @@
+.table {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table th{
+    width: 50%;
+}
+
+.table tbody{
+    background-color: #f0f0f0 ;
+}
+
+.table-sortable th {
+    cursor: pointer;
+}
+
+.th-sort-asc::after {
+    content: "\25b4";
+    color: salmon;
+}
+
+.th-sort-desc::after {
+    content: "\25be";
+    color: salmon;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 1em;
+    background-color: #f0f0f0;
+    color: black;
+    text-align: center;
+}
